@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, onNotificationClick, noti
 
   return (
     <header className="bg-red-600 text-white fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[94rem] mx-auto pl-4 pr-2 sm:pr-4 lg:pr-6">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <button
@@ -41,12 +41,12 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, onNotificationClick, noti
             <img
               src="/images/hatillogo.png"
               alt="HATIL Logo"
-              className="h-10 w-[136px] object-contain ml-4"
+              className="h-10 w-[136px] object-contain ml-0"
             />
           </div>
 
-          <div className="flex items-center gap-6">
-            <div className="hidden md:flex items-center gap-4">
+          <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-3">
               <div className="flex items-center gap-2">
                 <Calendar size={18} className="text-red-200" />
                 <span className="text-sm">{date}</span>
@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, onNotificationClick, noti
               </div>
             </div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <div className="text-right">
                 <p className="text-sm font-medium">Shahin</p>
                 <p className="text-xs text-red-200">Admin</p>
