@@ -54,7 +54,7 @@ const FittingSection: React.FC<FittingSectionProps> = ({
         statusFiltered = ordersList.filter(order => order.status === 'Partial Fitting');
         break;
       case 'completed':
-        statusFiltered = ordersList.filter(order => order.status === 'Delivered');
+        statusFiltered = ordersList.filter(order => order.status === 'Completed');
         break;
       default:
         statusFiltered = ordersList;
@@ -89,8 +89,8 @@ const FittingSection: React.FC<FittingSectionProps> = ({
     },
     { 
       id: 'completed', 
-      label: 'Delivered', 
-      count: ordersList.filter(o => o.status === 'Delivered').length 
+      label: 'Completed', 
+      count: ordersList.filter(o => o.status === 'Completed').length 
     }
   ];
 
@@ -153,8 +153,8 @@ const FittingSection: React.FC<FittingSectionProps> = ({
     if (endFittingModal.orderId) {
       const newOrders = { ...orders };
       const currentTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dhaka' });
-      newOrders[endFittingModal.orderId].status = 'Delivered';
-      newOrders[endFittingModal.orderId].statusDate = `Delivered: ${currentTime}`;
+      newOrders[endFittingModal.orderId].status = 'Completed';
+      newOrders[endFittingModal.orderId].statusDate = `Completed: ${currentTime}`;
       onUpdateOrders(newOrders);
       onShowToast('Fitting completed successfully!');
       setActiveTab('completed');

@@ -161,7 +161,7 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
         return <span className="inline-block px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">Way to Delivery</span>;
       case 'Processing':
         return <span className="inline-block px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Picked</span>;
-      case 'Delivered':
+      case 'Completed':
         return <span className="inline-block px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Completed</span>;
       default:
         return null;
@@ -174,7 +174,7 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
 
     const isDelivery = order.billNo.startsWith('KMSB');
     const isFitting = order.billNo.startsWith('FITB');
-    const isCompleted = order.status === 'Delivered';
+    const isCompleted = order.status === 'Completed';
     const showButton = (order.status === 'Processing' || order.status === 'Pending') && !isCompleted;
 
     if ((isDelivery || isFitting) && showButton) {

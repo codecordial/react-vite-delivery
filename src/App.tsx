@@ -76,7 +76,7 @@ function App() {
     const ordersList = Object.values(newOrders);
     const newStats: UserStats = {
       totalBills: ordersList.length,
-      delivered: ordersList.filter(o => o.status === 'Delivered').length,
+      delivered: ordersList.filter(o => o.status === 'Completed').length,
       pending: ordersList.filter(o => o.status === 'Pending').length,
       processing: ordersList.filter(o => o.status === 'Processing').length
     };

@@ -57,7 +57,7 @@ const OrderDetailsSection: React.FC<OrderDetailsSectionProps> = ({ order, onBack
         return 'text-yellow-600 bg-yellow-50 border-yellow-200';
       case 'Processing':
         return 'text-blue-600 bg-blue-50 border-blue-200';
-      case 'Delivered':
+      case 'Completed':
         return 'text-green-600 bg-green-50 border-green-200';
       case 'Partial Fitting':
         return 'text-orange-600 bg-orange-50 border-orange-200';
@@ -228,7 +228,7 @@ const OrderDetailsSection: React.FC<OrderDetailsSectionProps> = ({ order, onBack
 
           {renderRatingQuestion(
             'delivery',
-            'Was the product delivered timely?',
+            'Was the product completed timely?',
             'ফার্নিচার কি সময়মত ডেলিভারি হয়েছিলো?'
           )}
 

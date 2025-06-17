@@ -5,7 +5,7 @@ export interface Order {
   customerName: string;
   customerAddress: string;
   customerPhone: string;
-  status: 'Pending' | 'Processing' | 'Delivered' | 'Partial Fitting';
+  status: 'Pending' | 'Processing' | 'Completed' | 'Partial Fitting';
   statusDate?: string;
   orderDate: string;
 }

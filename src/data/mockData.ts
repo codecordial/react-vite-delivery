@@ -28,8 +28,8 @@ export const mockOrders: Record<string, Order> = {
     customerName: "Jane Smith",
     customerAddress: "New Town, Manikganj",
     customerPhone: "01725116322",
-    status: "Delivered",
-    statusDate: "Delivered: Mar 6, 2025 14:30",
+    status: "Completed",
+    statusDate: "Completed: Mar 6, 2025 14:30",
     orderDate: "Mar 6, 2025 12:41 PM"
   },
   "KMSB-2425-000760": {
@@ -69,8 +69,8 @@ export const mockOrders: Record<string, Order> = {
     customerName: "Arif Ahmed",
     customerAddress: "Dhanmondi, Dhaka",
     customerPhone: "01555667799",
-    status: "Delivered",
-    statusDate: "Delivered: 05/09/2024 11:00",
+    status: "Completed",
+    statusDate: "Completed: 05/09/2024 11:00",
     orderDate: "Mar 6, 2025 12:41 PM"
   },
   "KMSB-2425-000764": {
@@ -130,8 +130,8 @@ export const mockOrders: Record<string, Order> = {
     customerName: "Ahmed Khan",
     customerAddress: "Banani, Dhaka",
     customerPhone: "01555123456",
-    status: "Delivered",
-    statusDate: "Delivered: Mar 8, 2025 16:30",
+    status: "Completed",
+    statusDate: "Completed: Mar 8, 2025 16:30",
     orderDate: "Mar 6, 2025 02:30 PM"
   },
   "FITB-2425-000804": {

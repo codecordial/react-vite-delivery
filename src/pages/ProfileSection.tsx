@@ -48,7 +48,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ userStats }) => {
           </div>
           <div className="bg-gray-50 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-red-600 mb-1">{userStats.delivered}</div>
-            <div className="text-sm text-gray-600">Delivered</div>
+            <div className="text-sm text-gray-600">Completed</div>
           </div>
           <div className="bg-gray-50 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-red-600 mb-1">{userStats.pending}</div>

@@ -45,7 +45,7 @@ const DeliverySection: React.FC<DeliverySectionProps> = ({
         statusFiltered = ordersList.filter(order => order.status === 'Processing');
         break;
       case 'completed':
-        statusFiltered = ordersList.filter(order => order.status === 'Delivered');
+        statusFiltered = ordersList.filter(order => order.status === 'Completed');
         break;
       default:
         statusFiltered = ordersList;
@@ -75,8 +75,8 @@ const DeliverySection: React.FC<DeliverySectionProps> = ({
     },
     { 
       id: 'completed', 
-      label: 'Delivered', 
-      count: ordersList.filter(o => o.status === 'Delivered').length 
+      label: 'Completed', 
+      count: ordersList.filter(o => o.status === 'Completed').length 
     }
   ];
 
@@ -103,8 +103,8 @@ const DeliverySection: React.FC<DeliverySectionProps> = ({
     if (endDeliveryModal.orderId) {
       const newOrders = { ...orders };
       const currentTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dhaka' });
-      newOrders[endDeliveryModal.orderId].status = 'Delivered';
-      newOrders[endDeliveryModal.orderId].statusDate = `Delivered: ${currentTime}`;
+      newOrders[endDeliveryModal.orderId].status = 'Completed';
+      newOrders[endDeliveryModal.orderId].statusDate = `Completed: ${currentTime}`;
       onUpdateOrders(newOrders);
       onShowToast('Delivery completed successfully!');
       setActiveTab('completed');
