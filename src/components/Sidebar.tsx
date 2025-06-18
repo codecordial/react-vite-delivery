@@ -1,12 +1,14 @@
 import React from 'react';
 import { 
-  Users, 
+  Home, 
   Truck, 
   Wrench, 
   User, 
   Bell, 
   Info, 
-  FileText 
+  FileText, 
+  LogOut,
+  QrCode
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -17,13 +19,14 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, activeSection, onSectionChange }) => {
   const menuItems = [
-    { id: 'customer', label: 'Customer', icon: Users },
+    { id: 'customer', label: 'My Orders', icon: Home },
     { id: 'dashboard', label: 'Your Delivery', icon: Truck },
     { id: 'fitting', label: 'Your Fitting', icon: Wrench },
-    { id: 'profile', label: 'View Profile', icon: User },
+    { id: 'verification', label: 'Product Verification', icon: QrCode },
+    { id: 'profile', label: 'Profile', icon: User },
     { id: 'notifications', label: 'Notifications', icon: Bell },
     { id: 'about', label: 'About Us', icon: Info },
-    { id: 'terms', label: 'Terms & Conditions', icon: FileText }
+    { id: 'terms', label: 'Terms & Conditions', icon: FileText },
   ];
 
   return (

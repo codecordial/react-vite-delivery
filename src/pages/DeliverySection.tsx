@@ -37,18 +37,21 @@ const DeliverySection: React.FC<DeliverySectionProps> = ({
   const filteredOrders = useMemo(() => {
     let statusFiltered: Order[] = [];
     
+    // Filter for delivery orders only
+    const deliveryOrders = ordersList.filter(order => order.type === 'Delivery');
+    
     switch (activeTab) {
       case 'pending':
-        statusFiltered = ordersList.filter(order => order.status === 'Pending');
+        statusFiltered = deliveryOrders.filter(order => order.status === 'Pending');
         break;
       case 'processing':
-        statusFiltered = ordersList.filter(order => order.status === 'Processing');
+        statusFiltered = deliveryOrders.filter(order => order.status === 'Processing');
         break;
       case 'completed':
-        statusFiltered = ordersList.filter(order => order.status === 'Completed');
+        statusFiltered = deliveryOrders.filter(order => order.status === 'Completed');
         break;
       default:
-        statusFiltered = ordersList;
+        statusFiltered = deliveryOrders;
     }
 
     if (!searchQuery) return statusFiltered;
@@ -66,17 +69,17 @@ const DeliverySection: React.FC<DeliverySectionProps> = ({
     { 
       id: 'pending', 
       label: 'Pending', 
-      count: ordersList.filter(o => o.status === 'Pending').length 
+      count: ordersList.filter(o => o.type === 'Delivery' && o.status === 'Pending').length 
     },
     { 
       id: 'processing', 
       label: 'Processing', 
-      count: ordersList.filter(o => o.status === 'Processing').length 
+      count: ordersList.filter(o => o.type === 'Delivery' && o.status === 'Processing').length 
     },
     { 
       id: 'completed', 
       label: 'Completed', 
-      count: ordersList.filter(o => o.status === 'Completed').length 
+      count: ordersList.filter(o => o.type === 'Delivery' && o.status === 'Completed').length 
     }
   ];
 

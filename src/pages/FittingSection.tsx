@@ -43,21 +43,24 @@ const FittingSection: React.FC<FittingSectionProps> = ({
   const filteredOrders = useMemo(() => {
     let statusFiltered: Order[] = [];
     
+    // Filter for fitting orders only
+    const fittingOrders = ordersList.filter(order => order.type === 'Fitting');
+    
     switch (activeTab) {
       case 'pending':
-        statusFiltered = ordersList.filter(order => order.status === 'Pending');
+        statusFiltered = fittingOrders.filter(order => order.status === 'Pending');
         break;
       case 'processing':
-        statusFiltered = ordersList.filter(order => order.status === 'Processing');
+        statusFiltered = fittingOrders.filter(order => order.status === 'Processing');
         break;
       case 'partial':
-        statusFiltered = ordersList.filter(order => order.status === 'Partial Fitting');
+        statusFiltered = fittingOrders.filter(order => order.status === 'Partial Fitting');
         break;
       case 'completed':
-        statusFiltered = ordersList.filter(order => order.status === 'Completed');
+        statusFiltered = fittingOrders.filter(order => order.status === 'Completed');
         break;
       default:
-        statusFiltered = ordersList;
+        statusFiltered = fittingOrders;
     }
 
     if (!searchQuery) return statusFiltered;
@@ -75,22 +78,22 @@ const FittingSection: React.FC<FittingSectionProps> = ({
     { 
       id: 'pending', 
       label: 'Pending', 
-      count: ordersList.filter(o => o.status === 'Pending').length 
+      count: ordersList.filter(o => o.type === 'Fitting' && o.status === 'Pending').length 
     },
     { 
       id: 'processing', 
       label: 'Processing', 
-      count: ordersList.filter(o => o.status === 'Processing').length 
+      count: ordersList.filter(o => o.type === 'Fitting' && o.status === 'Processing').length 
     },
     { 
       id: 'partial', 
       label: 'Partial Fitting', 
-      count: ordersList.filter(o => o.status === 'Partial Fitting').length 
+      count: ordersList.filter(o => o.type === 'Fitting' && o.status === 'Partial Fitting').length 
     },
     { 
       id: 'completed', 
       label: 'Completed', 
-      count: ordersList.filter(o => o.status === 'Completed').length 
+      count: ordersList.filter(o => o.type === 'Fitting' && o.status === 'Completed').length 
     }
   ];
 

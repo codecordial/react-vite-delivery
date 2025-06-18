@@ -10,16 +10,18 @@ interface OrderCardProps {
 const OrderCard: React.FC<OrderCardProps> = ({ order, onOrderClick, actions }) => {
   const getStatusLabel = (status: string) => {
     switch (status) {
+      case 'Pending':
+        return { text: order.type === 'Delivery' ? 'Way to Delivery' : 'Way to Fitting', color: 'bg-yellow-100 text-yellow-800' };
       case 'Processing':
         return { text: 'Picked', color: 'bg-blue-100 text-blue-800' };
-      case 'Pending':
-        return { text: 'Way to Deliver', color: 'bg-yellow-100 text-yellow-800' };
       case 'Completed':
         return { text: 'Completed', color: 'bg-green-100 text-green-800' };
       case 'Cancelled':
         return { text: 'Cancelled', color: 'bg-red-100 text-red-800' };
+      case 'Partial Fitting':
+        return { text: 'Partial Fitting', color: 'bg-orange-100 text-orange-800' };
       default:
-        return null;
+        return { text: status, color: 'bg-gray-100 text-gray-800' };
     }
   };
 

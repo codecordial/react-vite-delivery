@@ -10,6 +10,7 @@ import NotificationsSection from './pages/NotificationsSection';
 import StaticPage from './pages/StaticPages';
 import OrderDetailsSection from './pages/OrderDetailsSection';
 import CustomerLocationSection from './pages/CustomerLocationSection';
+import ProductVerificationSection from './pages/ProductVerificationSection';
 import { mockOrders, mockNotifications, mockUserStats } from './data/mockData';
 import { Order, Notification, UserStats } from './types/Order';
 
@@ -108,6 +109,8 @@ function App() {
             onUpdateOrders={handleUpdateOrders}
           />
         );
+      case 'verification':
+        return <ProductVerificationSection onShowToast={showToast} />;
       case 'profile':
         return <ProfileSection userStats={userStats} />;
       case 'notifications':

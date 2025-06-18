@@ -8,6 +8,7 @@ export interface Order {
   status: 'Pending' | 'Processing' | 'Completed' | 'Partial Fitting';
   statusDate?: string;
   orderDate: string;
+  type: 'Delivery' | 'Fitting';
 }
 
 export interface OrderItem {

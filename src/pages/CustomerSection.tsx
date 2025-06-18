@@ -87,35 +87,70 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
       phone: '01999001122',
       location: 'Currently at Baridhara, Dhaka'
     },
-    'FITB-2425-000801': {
-      name: 'Shahid Mia',
+    'KMSB-2425-000801': {
+      name: 'Rahim Ali',
       phone: '01812345678',
+      location: 'Currently at Mirpur, Dhaka'
+    },
+    'KMSB-2425-000802': {
+      name: 'Sultana Razia',
+      phone: '01987654321',
       location: 'Currently at Gulshan, Dhaka'
     },
-    'FITB-2425-000802': {
-      name: 'Rafiqul Islam',
-      phone: '01987654321',
-      location: 'Currently at Gulshan 2, Dhaka'
+    'KMSB-2425-000804': {
+      name: 'Nasreen Akter',
+      phone: '01666123456',
+      location: 'Currently at Uttara, Dhaka'
     },
-    'FITB-2425-000803': {
+    'KMSB-2425-000805': {
+      name: 'Mominul Islam',
+      phone: '01777123456',
+      location: 'Currently at Mohammadpur, Dhaka'
+    },
+    'KMSB-2425-000806': {
+      name: 'Farida Begum',
+      phone: '01888123456',
+      location: 'Currently at Bashundhara, Dhaka'
+    },
+    'KMSB-2425-000807': {
+      name: 'Nazrul Islam',
+      phone: '01999123456',
+      location: 'Currently at Mirpur DOHS, Dhaka'
+    },
+    'KMSB-2425-000808': {
+      name: 'Sabina Yasmin',
+      phone: '01888123457',
+      location: 'Currently at Gulshan, Dhaka'
+    },
+    'KMSB-2425-000811': {
+      name: 'Rafiqul Islam',
+      phone: '01555123460',
+      location: 'Currently at Mohammadpur, Dhaka'
+    },
+    'KMSB-2425-000812': {
       name: 'Mominul Haque',
       phone: '01555123456',
-      location: 'Currently at Banani, Dhaka'
+      location: 'Currently at Bashundhara, Dhaka'
     },
-    'FITB-2425-000804': {
-      name: 'Nazrul Islam',
-      phone: '01666123456',
-      location: 'Currently at Uttara Sector 11, Dhaka'
+    'KMSB-2425-000813': {
+      name: 'Tahmina Rahman',
+      phone: '01333123462',
+      location: 'Currently at Dhanmondi, Dhaka'
     },
-    'FITB-2425-000805': {
+    'KMSB-2425-000814': {
       name: 'Shafiqul Islam',
-      phone: '01777123456',
+      phone: '01222123463',
       location: 'Currently at Mirpur 10, Dhaka'
     },
-    'FITB-2425-000806': {
-      name: 'Kamrul Hasan',
-      phone: '01888123456',
-      location: 'Currently at Dhanmondi 27, Dhaka'
+    'KMSB-2425-000817': {
+      name: 'Shirin Akter',
+      phone: '01999123466',
+      location: 'Currently at Uttara Sector 7, Dhaka'
+    },
+    'KMSB-2425-000818': {
+      name: 'Rashidul Hasan',
+      phone: '01888123467',
+      location: 'Currently at Mohammadpur, Dhaka'
     }
   };
 
@@ -145,12 +180,13 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
   }, [orders, typeFilter, searchQuery]);
 
   const handleWorkerClick = (billNo: string) => {
+    const order = orders.find(o => o.billNo === billNo);
     const worker = mockWorkers[billNo];
-    if (worker) {
+    if (worker && order) {
       setWorkerModal({
         isOpen: true,
         worker,
-        type: typeFilter
+        type: order.type
       });
     }
   };
@@ -169,16 +205,12 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
   };
 
   const renderOrderActions = (order: Order) => {
-    const worker = mockWorkers[order.billNo];
-    if (!worker) return null;
-
-    const isDelivery = order.billNo.startsWith('KMSB');
-    const isFitting = order.billNo.startsWith('FITB');
-    const isCompleted = order.status === 'Completed';
-    const showButton = (order.status === 'Processing' || order.status === 'Pending') && !isCompleted;
+    const isDelivery = order.type === 'Delivery';
+    const isFitting = order.type === 'Fitting';
+    const showButton = order.status === 'Pending' || order.status === 'Processing';
 
     if ((isDelivery || isFitting) && showButton) {
-      const buttonText = isDelivery ? 'See Deliveryman' : 'See FitterMan';
+      const buttonText = isDelivery ? 'See Deliveryman' : 'See Fitterman';
       
       return (
         <button
@@ -253,55 +285,31 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
           </div>
         )}
 
-        {/* Worker Details Modal */}
+        {/* Worker Modal */}
         <Modal
           isOpen={workerModal.isOpen}
           onClose={() => setWorkerModal({ isOpen: false, worker: null, type: '' })}
-          title={`${workerModal.type === 'Delivery' ? 'Deliveryman' : 'FitterMan'} Details`}
+          title={`${workerModal.type === 'Delivery' ? 'Deliveryman' : 'Fitterman'} Details`}
         >
           {workerModal.worker && (
             <div className="space-y-4">
-              <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
-                <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center">
-                  <User size={24} />
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                  <User className="text-red-600" size={24} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">{workerModal.worker.name}</h4>
-                  <p className="text-sm text-gray-600">{workerModal.type === 'Delivery' ? 'Delivery Person' : 'Fitting Specialist'}</p>
+                  <h3 className="font-semibold text-gray-900">{workerModal.worker.name}</h3>
+                  <p className="text-sm text-gray-600">{workerModal.type === 'Delivery' ? 'Deliveryman' : 'Fitterman'}</p>
                 </div>
               </div>
-
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg">
-                  <Phone className="text-red-600" size={20} />
-                  <div>
-                    <p className="text-sm text-gray-600">Phone Number</p>
-                    <p className="font-medium text-gray-900">{workerModal.worker.phone}</p>
-                    <a 
-                      href={`tel:${workerModal.worker.phone}`}
-                      className="text-red-600 hover:text-red-700 text-sm font-medium inline-flex items-center gap-1 mt-1"
-                    >
-                      <Phone size={14} />
-                      Call Now
-                    </a>
-                  </div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-gray-600">
+                  <Phone size={16} />
+                  <span>{workerModal.worker.phone}</span>
                 </div>
-
-                <div className="flex items-start gap-3 p-3 border border-gray-200 rounded-lg">
-                  <MapPin className="text-red-600 mt-1" size={20} />
-                  <div>
-                    <p className="text-sm text-gray-600">Live Location</p>
-                    <p className="font-medium text-gray-900">{workerModal.worker.location}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Map Placeholder */}
-              <div className="w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="mx-auto text-gray-400 mb-2" size={32} />
-                  <p className="text-gray-500 font-medium">Live Location Map</p>
-                  <p className="text-gray-400 text-sm">Interactive map will be integrated</p>
+                <div className="flex items-center gap-2 text-gray-600">
+                  <MapPin size={16} />
+                  <span>{workerModal.worker.location}</span>
                 </div>
               </div>
             </div>

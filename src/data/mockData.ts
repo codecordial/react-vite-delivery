@@ -9,7 +9,9 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Ghior Bazar, Thanamor, Manikganj",
     customerPhone: "01714073280",
     status: "Pending",
-    orderDate: "Mar 6, 2025 11:54 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 6, 2025 11:54 AM",
+    type: "Delivery"
   },
   "KMSB-2425-000751": {
     billNo: "KMSB-2425-000751",
@@ -19,7 +21,9 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Test Area, Dhaka",
     customerPhone: "01725116321",
     status: "Processing",
-    orderDate: "Mar 6, 2025 12:03 PM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 6, 2025 12:03 PM",
+    type: "Fitting"
   },
   "KMSB-2425-000752": {
     billNo: "KMSB-2425-000752",
@@ -30,7 +34,8 @@ export const mockOrders: Record<string, Order> = {
     customerPhone: "01725116322",
     status: "Completed",
     statusDate: "Completed: Mar 6, 2025 14:30",
-    orderDate: "Mar 6, 2025 12:41 PM"
+    orderDate: "Mar 6, 2025 12:41 PM",
+    type: "Delivery"
   },
   "KMSB-2425-000760": {
     billNo: "KMSB-2425-000760",
@@ -40,7 +45,9 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Mirpur DOHS, Dhaka",
     customerPhone: "01911223344",
     status: "Pending",
-    orderDate: "Mar 6, 2025 11:54 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 6, 2025 11:54 AM",
+    type: "Delivery"
   },
   "KMSB-2425-000761": {
     billNo: "KMSB-2425-000761",
@@ -50,7 +57,9 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Uttara Sector 10, Dhaka",
     customerPhone: "01855667788",
     status: "Pending",
-    orderDate: "Mar 6, 2025 11:54 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 6, 2025 11:54 AM",
+    type: "Fitting"
   },
   "KMSB-2425-000762": {
     billNo: "KMSB-2425-000762",
@@ -60,7 +69,9 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Banani, Dhaka",
     customerPhone: "01611223355",
     status: "Processing",
-    orderDate: "Mar 6, 2025 12:03 PM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 6, 2025 12:03 PM",
+    type: "Fitting"
   },
   "KMSB-2425-000763": {
     billNo: "KMSB-2425-000763",
@@ -71,7 +82,8 @@ export const mockOrders: Record<string, Order> = {
     customerPhone: "01555667799",
     status: "Completed",
     statusDate: "Completed: 05/09/2024 11:00",
-    orderDate: "Mar 6, 2025 12:41 PM"
+    orderDate: "Mar 6, 2025 12:41 PM",
+    type: "Fitting"
   },
   "KMSB-2425-000764": {
     billNo: "KMSB-2425-000764",
@@ -81,7 +93,9 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Mohammadpur, Dhaka",
     customerPhone: "01777889900",
     status: "Pending",
-    orderDate: "Mar 7, 2025 09:15 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 7, 2025 09:15 AM",
+    type: "Delivery"
   },
   "KMSB-2425-000765": {
     billNo: "KMSB-2425-000765",
@@ -91,7 +105,9 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Gulshan 1, Dhaka",
     customerPhone: "01888990011",
     status: "Processing",
-    orderDate: "Mar 7, 2025 10:30 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 7, 2025 10:30 AM",
+    type: "Fitting"
   },
   "KMSB-2425-000766": {
     billNo: "KMSB-2425-000766",
@@ -101,68 +117,225 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Baridhara, Dhaka",
     customerPhone: "01999001122",
     status: "Pending",
-    orderDate: "Mar 7, 2025 11:45 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 7, 2025 11:45 AM",
+    type: "Delivery"
   },
-  "FITB-2425-000801": {
-    billNo: "FITB-2425-000801",
-    orderNo: "FITO-2425-000701",
-    billingDate: "06/03/2025",
-    customerName: "Mr. Hasan",
-    customerAddress: "Test Address, Dhaka",
+  "KMSB-2425-000801": {
+    billNo: "KMSB-2425-000801",
+    orderNo: "ORD017",
+    billingDate: "Mar 6, 2025",
+    customerName: "Rahim Ali",
+    customerAddress: "Mirpur, Dhaka",
     customerPhone: "01812345678",
     status: "Pending",
-    orderDate: "Mar 6, 2025 11:27 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 6, 2025 11:27 AM",
+    type: "Delivery"
   },
-  "FITB-2425-000802": {
-    billNo: "FITB-2425-000802",
-    orderNo: "FITO-2425-000702",
-    billingDate: "07/03/2025",
-    customerName: "Mrs. Rahman",
-    customerAddress: "Gulshan 2, Dhaka",
+  "KMSB-2425-000802": {
+    billNo: "KMSB-2425-000802",
+    orderNo: "ORD018",
+    billingDate: "Mar 6, 2025",
+    customerName: "Sultana Razia",
+    customerAddress: "Gulshan, Dhaka",
     customerPhone: "01987654321",
     status: "Processing",
-    orderDate: "Mar 6, 2025 01:15 PM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 6, 2025 01:15 PM",
+    type: "Fitting"
   },
-  "FITB-2425-000803": {
-    billNo: "FITB-2425-000803",
-    orderNo: "FITO-2425-000703",
-    billingDate: "08/03/2025",
-    customerName: "Ahmed Khan",
+  "KMSB-2425-000803": {
+    billNo: "KMSB-2425-000803",
+    orderNo: "ORD019",
+    billingDate: "Mar 6, 2025",
+    customerName: "Karim Uddin",
     customerAddress: "Banani, Dhaka",
     customerPhone: "01555123456",
     status: "Completed",
     statusDate: "Completed: Mar 8, 2025 16:30",
-    orderDate: "Mar 6, 2025 02:30 PM"
+    orderDate: "Mar 6, 2025 02:30 PM",
+    type: "Delivery"
   },
-  "FITB-2425-000804": {
-    billNo: "FITB-2425-000804",
-    orderNo: "FITO-2425-000704",
-    billingDate: "09/03/2025",
-    customerName: "Fatima Begum",
-    customerAddress: "Uttara Sector 11, Dhaka",
+  "KMSB-2425-000804": {
+    billNo: "KMSB-2425-000804",
+    orderNo: "ORD020",
+    billingDate: "Mar 7, 2025",
+    customerName: "Nasreen Akter",
+    customerAddress: "Uttara, Dhaka",
     customerPhone: "01666123456",
     status: "Pending",
-    orderDate: "Mar 7, 2025 09:45 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 7, 2025 09:45 AM",
+    type: "Delivery"
   },
-  "FITB-2425-000805": {
-    billNo: "FITB-2425-000805",
-    orderNo: "FITO-2425-000705",
-    billingDate: "10/03/2025",
-    customerName: "Mohammad Ali",
-    customerAddress: "Mirpur 10, Dhaka",
+  "KMSB-2425-000805": {
+    billNo: "KMSB-2425-000805",
+    orderNo: "ORD021",
+    billingDate: "Mar 7, 2025",
+    customerName: "Mominul Islam",
+    customerAddress: "Mohammadpur, Dhaka",
     customerPhone: "01777123456",
     status: "Processing",
-    orderDate: "Mar 7, 2025 10:30 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 7, 2025 10:30 AM",
+    type: "Fitting"
   },
-  "FITB-2425-000806": {
-    billNo: "FITB-2425-000806",
-    orderNo: "FITO-2425-000706",
-    billingDate: "11/03/2025",
-    customerName: "Nusrat Jahan",
-    customerAddress: "Dhanmondi 27, Dhaka",
+  "KMSB-2425-000806": {
+    billNo: "KMSB-2425-000806",
+    orderNo: "ORD022",
+    billingDate: "Mar 7, 2025",
+    customerName: "Farida Begum",
+    customerAddress: "Bashundhara, Dhaka",
     customerPhone: "01888123456",
     status: "Pending",
-    orderDate: "Mar 7, 2025 11:15 AM"
+    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    orderDate: "Mar 7, 2025 11:15 AM",
+    type: "Delivery"
+  },
+  "KMSB-2425-000807": {
+    billNo: "KMSB-2425-000807",
+    orderNo: "ORD023",
+    billingDate: "Mar 7, 2025",
+    customerName: "Nazrul Islam",
+    customerAddress: "Mirpur DOHS, Dhaka",
+    customerPhone: "01999123456",
+    status: "Pending",
+    statusDate: "Pending: Mar 7, 2025 12:00 PM",
+    orderDate: "Mar 7, 2025 12:00 PM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000808": {
+    billNo: "KMSB-2425-000808",
+    orderNo: "ORD024",
+    billingDate: "Mar 7, 2025",
+    customerName: "Sabina Yasmin",
+    customerAddress: "Gulshan, Dhaka",
+    customerPhone: "01888123457",
+    status: "Processing",
+    statusDate: "Processing: Mar 7, 2025 01:30 PM",
+    orderDate: "Mar 7, 2025 01:30 PM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000809": {
+    billNo: "KMSB-2425-000809",
+    orderNo: "ORD025",
+    billingDate: "Mar 7, 2025",
+    customerName: "Kamrul Hasan",
+    customerAddress: "Banani, Dhaka",
+    customerPhone: "01777123458",
+    status: "Partial Fitting",
+    statusDate: "Paused - Customer not available",
+    orderDate: "Mar 7, 2025 02:45 PM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000810": {
+    billNo: "KMSB-2425-000810",
+    orderNo: "ORD026",
+    billingDate: "Mar 7, 2025",
+    customerName: "Farhana Akter",
+    customerAddress: "Uttara, Dhaka",
+    customerPhone: "01666123459",
+    status: "Completed",
+    statusDate: "Completed: Mar 7, 2025 04:15 PM",
+    orderDate: "Mar 7, 2025 04:15 PM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000811": {
+    billNo: "KMSB-2425-000811",
+    orderNo: "ORD027",
+    billingDate: "Mar 8, 2025",
+    customerName: "Rafiqul Islam",
+    customerAddress: "Mohammadpur, Dhaka",
+    customerPhone: "01555123460",
+    status: "Pending",
+    statusDate: "Pending: Mar 8, 2025 10:00 AM",
+    orderDate: "Mar 8, 2025 10:00 AM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000812": {
+    billNo: "KMSB-2425-000812",
+    orderNo: "ORD028",
+    billingDate: "Mar 8, 2025",
+    customerName: "Nasreen Begum",
+    customerAddress: "Bashundhara, Dhaka",
+    customerPhone: "01444123461",
+    status: "Processing",
+    statusDate: "Processing: Mar 8, 2025 11:30 AM",
+    orderDate: "Mar 8, 2025 11:30 AM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000813": {
+    billNo: "KMSB-2425-000813",
+    orderNo: "ORD029",
+    billingDate: "Mar 8, 2025",
+    customerName: "Tahmina Rahman",
+    customerAddress: "Dhanmondi, Dhaka",
+    customerPhone: "01333123462",
+    status: "Pending",
+    statusDate: "Pending: Mar 8, 2025 01:00 PM",
+    orderDate: "Mar 8, 2025 01:00 PM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000814": {
+    billNo: "KMSB-2425-000814",
+    orderNo: "ORD030",
+    billingDate: "Mar 8, 2025",
+    customerName: "Shafiqul Islam",
+    customerAddress: "Mirpur 10, Dhaka",
+    customerPhone: "01222123463",
+    status: "Processing",
+    statusDate: "Processing: Mar 8, 2025 02:30 PM",
+    orderDate: "Mar 8, 2025 02:30 PM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000815": {
+    billNo: "KMSB-2425-000815",
+    orderNo: "ORD031",
+    billingDate: "Mar 8, 2025",
+    customerName: "Nusrat Jahan",
+    customerAddress: "Gulshan 2, Dhaka",
+    customerPhone: "01111123464",
+    status: "Partial Fitting",
+    statusDate: "Paused - Customer requested reschedule",
+    orderDate: "Mar 8, 2025 03:45 PM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000816": {
+    billNo: "KMSB-2425-000816",
+    orderNo: "ORD032",
+    billingDate: "Mar 8, 2025",
+    customerName: "Mahmudur Rahman",
+    customerAddress: "Banani DOHS, Dhaka",
+    customerPhone: "01000123465",
+    status: "Completed",
+    statusDate: "Completed: Mar 8, 2025 05:15 PM",
+    orderDate: "Mar 8, 2025 05:15 PM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000817": {
+    billNo: "KMSB-2425-000817",
+    orderNo: "ORD033",
+    billingDate: "Mar 9, 2025",
+    customerName: "Shirin Akter",
+    customerAddress: "Uttara Sector 7, Dhaka",
+    customerPhone: "01999123466",
+    status: "Pending",
+    statusDate: "Pending: Mar 9, 2025 10:00 AM",
+    orderDate: "Mar 9, 2025 10:00 AM",
+    type: "Fitting"
+  },
+  "KMSB-2425-000818": {
+    billNo: "KMSB-2425-000818",
+    orderNo: "ORD034",
+    billingDate: "Mar 9, 2025",
+    customerName: "Rashidul Hasan",
+    customerAddress: "Mohammadpur, Dhaka",
+    customerPhone: "01888123467",
+    status: "Processing",
+    statusDate: "Processing: Mar 9, 2025 11:30 AM",
+    orderDate: "Mar 9, 2025 11:30 AM",
+    type: "Fitting"
   }
 };
 
