@@ -1,4 +1,4 @@
-# BOLT - Delivery Management System
+# Delivery Management System
 
 A modern web application for managing deliveries and fittings, built with React and TypeScript.
 
