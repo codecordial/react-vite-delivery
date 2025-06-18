@@ -90,7 +90,9 @@ const DeliverySection: React.FC<DeliverySectionProps> = ({
   const confirmStartDelivery = () => {
     if (confirmModal.orderId) {
       const newOrders = { ...orders };
+      const currentTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dhaka' });
       newOrders[confirmModal.orderId].status = 'Processing';
+      newOrders[confirmModal.orderId].statusDate = `Processing: ${currentTime}`;
       onUpdateOrders(newOrders);
       onShowToast('Delivery started successfully!');
       setActiveTab('processing');
@@ -167,7 +169,7 @@ const DeliverySection: React.FC<DeliverySectionProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredOrders.map((order) => (
           <OrderCard
-            key={order.billNo}
+            key={`${order.billNo}-${order.status}`}
             order={order}
             onOrderClick={onOrderClick}
             actions={renderOrderActions(order)}

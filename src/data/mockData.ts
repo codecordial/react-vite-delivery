@@ -9,7 +9,7 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Ghior Bazar, Thanamor, Manikganj",
     customerPhone: "01714073280",
     status: "Pending",
-    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 6, 2025 11:54 AM",
     type: "Delivery"
   },
@@ -21,7 +21,7 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Test Area, Dhaka",
     customerPhone: "01725116321",
     status: "Processing",
-    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    statusDate: "Processing: Mar 6, 2025 12:03 PM",
     orderDate: "Mar 6, 2025 12:03 PM",
     type: "Fitting"
   },
@@ -45,7 +45,7 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Mirpur DOHS, Dhaka",
     customerPhone: "01911223344",
     status: "Pending",
-    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 6, 2025 11:54 AM",
     type: "Delivery"
   },
@@ -57,7 +57,7 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Uttara Sector 10, Dhaka",
     customerPhone: "01855667788",
     status: "Pending",
-    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 6, 2025 11:54 AM",
     type: "Fitting"
   },
@@ -69,7 +69,7 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Banani, Dhaka",
     customerPhone: "01611223355",
     status: "Processing",
-    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    statusDate: "Processing: Mar 6, 2025 12:03 PM",
     orderDate: "Mar 6, 2025 12:03 PM",
     type: "Fitting"
   },
@@ -93,7 +93,7 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Mohammadpur, Dhaka",
     customerPhone: "01777889900",
     status: "Pending",
-    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 7, 2025 09:15 AM",
     type: "Delivery"
   },
@@ -105,7 +105,7 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Gulshan 1, Dhaka",
     customerPhone: "01888990011",
     status: "Processing",
-    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    statusDate: "Processing: Mar 6, 2025 12:03 PM",
     orderDate: "Mar 7, 2025 10:30 AM",
     type: "Fitting"
   },
@@ -117,7 +117,7 @@ export const mockOrders: Record<string, Order> = {
     customerAddress: "Baridhara, Dhaka",
     customerPhone: "01999001122",
     status: "Pending",
-    statusDate: "Pending: Mar 6, 2025 12:41 PM",
+    statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 7, 2025 11:45 AM",
     type: "Delivery"
   },

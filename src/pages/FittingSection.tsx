@@ -99,7 +99,9 @@ const FittingSection: React.FC<FittingSectionProps> = ({
 
   const handleStartFitting = (billNo: string) => {
     const newOrders = { ...orders };
+    const currentTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dhaka' });
     newOrders[billNo].status = 'Processing';
+    newOrders[billNo].statusDate = `Processing: ${currentTime}`;
     onUpdateOrders(newOrders);
     onShowToast('Fitting started successfully!');
     setActiveTab('processing');
@@ -112,8 +114,9 @@ const FittingSection: React.FC<FittingSectionProps> = ({
     }
 
     const newOrders = { ...orders };
+    const currentTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dhaka' });
     newOrders[billNo].status = 'Partial Fitting';
-    newOrders[billNo].statusDate = `Paused - ${pauseReason}`;
+    newOrders[billNo].statusDate = `Paused - ${pauseReason} (${currentTime})`;
     onUpdateOrders(newOrders);
     onShowToast('Fitting paused successfully!');
     setPauseModal({ isOpen: false, orderId: null });
@@ -129,8 +132,9 @@ const FittingSection: React.FC<FittingSectionProps> = ({
     }
 
     const newOrders = { ...orders };
+    const currentTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dhaka' });
     newOrders[billNo].status = 'Pending';
-    delete newOrders[billNo].statusDate;
+    newOrders[billNo].statusDate = `Cancelled - ${cancelReason} (${currentTime})`;
     onUpdateOrders(newOrders);
     onShowToast('Fitting canceled and rescheduled!');
     setCancelModal({ isOpen: false, orderId: null });
@@ -141,8 +145,9 @@ const FittingSection: React.FC<FittingSectionProps> = ({
 
   const handleResumeFitting = (billNo: string) => {
     const newOrders = { ...orders };
+    const currentTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dhaka' });
     newOrders[billNo].status = 'Processing';
-    delete newOrders[billNo].statusDate;
+    newOrders[billNo].statusDate = `Processing: ${currentTime}`;
     onUpdateOrders(newOrders);
     onShowToast('Fitting resumed successfully!');
     setActiveTab('processing');
@@ -234,7 +239,7 @@ const FittingSection: React.FC<FittingSectionProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredOrders.map((order) => (
           <OrderCard
-            key={order.billNo}
+            key={`${order.billNo}-${order.status}`}
             order={order}
             onOrderClick={onOrderClick}
             actions={renderOrderActions(order)}
