@@ -11,6 +11,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 6, 2025 11:54 AM",
+    expectedDeliveryDate: "Mar 10, 2025",
     type: "Delivery"
   },
   "KMSB-2425-000751": {
@@ -23,6 +24,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Processing",
     statusDate: "Processing: Mar 6, 2025 12:03 PM",
     orderDate: "Mar 6, 2025 12:03 PM",
+    expectedDeliveryDate: "Mar 11, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000752": {
@@ -35,6 +37,20 @@ export const mockOrders: Record<string, Order> = {
     status: "Completed",
     statusDate: "Completed: Mar 6, 2025 14:30",
     orderDate: "Mar 6, 2025 12:41 PM",
+    expectedDeliveryDate: "Mar 9, 2025",
+    type: "Delivery"
+  },
+  "KMSB-2425-000753": {
+    billNo: "KMSB-2425-000753",
+    orderNo: "KMSO-2425-000609",
+    billingDate: "06/03/2025",
+    customerName: "New Customer",
+    customerAddress: "Some Address, City",
+    customerPhone: "01234567890",
+    status: "Partial-Delivered",
+    statusDate: "Partial-Delivered: Mar 7, 2025 10:00 AM",
+    orderDate: "Mar 6, 2025 01:00 PM",
+    expectedDeliveryDate: "Mar 12, 2025",
     type: "Delivery"
   },
   "KMSB-2425-000760": {
@@ -47,6 +63,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 6, 2025 11:54 AM",
+    expectedDeliveryDate: "Mar 13, 2025",
     type: "Delivery"
   },
   "KMSB-2425-000761": {
@@ -59,6 +76,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 6, 2025 11:54 AM",
+    expectedDeliveryDate: "Mar 14, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000762": {
@@ -71,6 +89,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Processing",
     statusDate: "Processing: Mar 6, 2025 12:03 PM",
     orderDate: "Mar 6, 2025 12:03 PM",
+    expectedDeliveryDate: "Mar 10, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000763": {
@@ -83,6 +102,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Completed",
     statusDate: "Completed: 05/09/2024 11:00",
     orderDate: "Mar 6, 2025 12:41 PM",
+    expectedDeliveryDate: "Mar 8, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000764": {
@@ -95,6 +115,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 7, 2025 09:15 AM",
+    expectedDeliveryDate: "Mar 11, 2025",
     type: "Delivery"
   },
   "KMSB-2425-000765": {
@@ -107,6 +128,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Processing",
     statusDate: "Processing: Mar 6, 2025 12:03 PM",
     orderDate: "Mar 7, 2025 10:30 AM",
+    expectedDeliveryDate: "Mar 12, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000766": {
@@ -119,6 +141,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 6, 2025 11:54 AM",
     orderDate: "Mar 7, 2025 11:45 AM",
+    expectedDeliveryDate: "Mar 13, 2025",
     type: "Delivery"
   },
   "KMSB-2425-000801": {
@@ -131,6 +154,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 6, 2025 12:41 PM",
     orderDate: "Mar 6, 2025 11:27 AM",
+    expectedDeliveryDate: "Mar 10, 2025",
     type: "Delivery"
   },
   "KMSB-2425-000802": {
@@ -143,6 +167,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Processing",
     statusDate: "Pending: Mar 6, 2025 12:41 PM",
     orderDate: "Mar 6, 2025 01:15 PM",
+    expectedDeliveryDate: "Mar 11, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000803": {
@@ -155,6 +180,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Completed",
     statusDate: "Completed: Mar 8, 2025 16:30",
     orderDate: "Mar 6, 2025 02:30 PM",
+    expectedDeliveryDate: "Mar 8, 2025",
     type: "Delivery"
   },
   "KMSB-2425-000804": {
@@ -167,6 +193,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 6, 2025 12:41 PM",
     orderDate: "Mar 7, 2025 09:45 AM",
+    expectedDeliveryDate: "Mar 10, 2025",
     type: "Delivery"
   },
   "KMSB-2425-000805": {
@@ -179,6 +206,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Processing",
     statusDate: "Pending: Mar 6, 2025 12:41 PM",
     orderDate: "Mar 7, 2025 10:30 AM",
+    expectedDeliveryDate: "Mar 11, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000806": {
@@ -191,6 +219,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 6, 2025 12:41 PM",
     orderDate: "Mar 7, 2025 11:15 AM",
+    expectedDeliveryDate: "Mar 12, 2025",
     type: "Delivery"
   },
   "KMSB-2425-000807": {
@@ -203,6 +232,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 7, 2025 12:00 PM",
     orderDate: "Mar 7, 2025 12:00 PM",
+    expectedDeliveryDate: "Mar 13, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000808": {
@@ -215,6 +245,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Processing",
     statusDate: "Processing: Mar 7, 2025 01:30 PM",
     orderDate: "Mar 7, 2025 01:30 PM",
+    expectedDeliveryDate: "Mar 14, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000809": {
@@ -227,6 +258,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Partial Fitting",
     statusDate: "Paused - Customer not available",
     orderDate: "Mar 7, 2025 02:45 PM",
+    expectedDeliveryDate: "Mar 15, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000810": {
@@ -239,6 +271,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Completed",
     statusDate: "Completed: Mar 7, 2025 04:15 PM",
     orderDate: "Mar 7, 2025 04:15 PM",
+    expectedDeliveryDate: "Mar 9, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000811": {
@@ -251,6 +284,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 8, 2025 10:00 AM",
     orderDate: "Mar 8, 2025 10:00 AM",
+    expectedDeliveryDate: "Mar 10, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000812": {
@@ -263,6 +297,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Processing",
     statusDate: "Processing: Mar 8, 2025 11:30 AM",
     orderDate: "Mar 8, 2025 11:30 AM",
+    expectedDeliveryDate: "Mar 11, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000813": {
@@ -275,6 +310,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 8, 2025 01:00 PM",
     orderDate: "Mar 8, 2025 01:00 PM",
+    expectedDeliveryDate: "Mar 12, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000814": {
@@ -287,6 +323,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Processing",
     statusDate: "Processing: Mar 8, 2025 02:30 PM",
     orderDate: "Mar 8, 2025 02:30 PM",
+    expectedDeliveryDate: "Mar 13, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000815": {
@@ -299,6 +336,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Partial Fitting",
     statusDate: "Paused - Customer requested reschedule",
     orderDate: "Mar 8, 2025 03:45 PM",
+    expectedDeliveryDate: "Mar 14, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000816": {
@@ -311,6 +349,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Completed",
     statusDate: "Completed: Mar 8, 2025 05:15 PM",
     orderDate: "Mar 8, 2025 05:15 PM",
+    expectedDeliveryDate: "Mar 9, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000817": {
@@ -323,6 +362,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Pending",
     statusDate: "Pending: Mar 9, 2025 10:00 AM",
     orderDate: "Mar 9, 2025 10:00 AM",
+    expectedDeliveryDate: "Mar 10, 2025",
     type: "Fitting"
   },
   "KMSB-2425-000818": {
@@ -335,6 +375,7 @@ export const mockOrders: Record<string, Order> = {
     status: "Processing",
     statusDate: "Processing: Mar 9, 2025 11:30 AM",
     orderDate: "Mar 9, 2025 11:30 AM",
+    expectedDeliveryDate: "Mar 16, 2025",
     type: "Fitting"
   }
 };

@@ -11,10 +11,14 @@ import StaticPage from './pages/StaticPages';
 import OrderDetailsSection from './pages/OrderDetailsSection';
 import CustomerLocationSection from './pages/CustomerLocationSection';
 import ProductVerificationSection from './pages/ProductVerificationSection';
+import LoginPage from './pages/LoginPage';
 import { mockOrders, mockNotifications, mockUserStats } from './data/mockData';
 import { Order, Notification, UserStats } from './types/Order';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState('');
+  const [userType, setUserType] = useState('');
   const [activeSection, setActiveSection] = useState('customer');
   const [previousSection, setPreviousSection] = useState('customer');
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -24,6 +28,31 @@ function App() {
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   const [toast, setToast] = useState({ message: '', isVisible: false });
 
+  // Check if user is already logged in (from localStorage)
+  useEffect(() => {
+    const savedUser = localStorage.getItem('currentUser');
+    const savedUserType = localStorage.getItem('userType');
+    if (savedUser && savedUserType) {
+      setIsAuthenticated(true);
+      setCurrentUser(savedUser);
+      setUserType(savedUserType);
+      setActiveSection(getDefaultSection(savedUserType));
+    }
+  }, []);
+
+  const getDefaultSection = (type: string) => {
+    switch (type) {
+      case 'customer':
+        return 'customer';
+      case 'deliveryman':
+        return 'dashboard';
+      case 'fitterman':
+        return 'fitting';
+      default:
+        return 'customer';
+    }
+  };
+
   const showToast = (message: string) => {
     setToast({ message, isVisible: true });
   };
@@ -32,7 +61,31 @@ function App() {
     setToast({ message: '', isVisible: false });
   };
 
+  const handleLogin = (username: string, userType: string) => {
+    setIsAuthenticated(true);
+    setCurrentUser(username);
+    setUserType(userType);
+    const defaultSection = getDefaultSection(userType);
+    setActiveSection(defaultSection);
+    localStorage.setItem('currentUser', username);
+    localStorage.setItem('userType', userType);
+    showToast(`Welcome back, ${username}!`);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setCurrentUser('');
+    setUserType('');
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('userType');
+    showToast('Logged out successfully');
+  };
+
   const handleSectionChange = (section: string) => {
+    if (section === 'logout') {
+      handleLogout();
+      return;
+    }
     setPreviousSection(activeSection);
     setActiveSection(section);
     setSidebarOpen(false);
@@ -86,6 +139,10 @@ function App() {
 
   const unreadNotificationCount = notifications.filter(n => !n.read).length;
 
+  if (!isAuthenticated) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
+
   const renderSection = () => {
     switch (activeSection) {
       case 'customer':
@@ -112,7 +169,7 @@ function App() {
       case 'verification':
         return <ProductVerificationSection onShowToast={showToast} />;
       case 'profile':
-        return <ProfileSection userStats={userStats} />;
+        return <ProfileSection userStats={userStats} onLogout={handleLogout} />;
       case 'notifications':
         return (
           <NotificationsSection 
@@ -129,7 +186,7 @@ function App() {
           <OrderDetailsSection 
             order={selectedOrder}
             onBack={() => setActiveSection(previousSection)}
-            isCustomerView={previousSection === 'customer'}
+            isCustomerView={userType === 'customer'}
           />
         );
       case 'customer-location':
@@ -145,17 +202,20 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50">
       <Header 
         onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
         onNotificationClick={handleNotificationClick}
         notificationCount={unreadNotificationCount}
+        currentUser={currentUser}
+        userType={userType}
       />
       
       <Sidebar 
         isOpen={sidebarOpen}
         activeSection={activeSection}
         onSectionChange={handleSectionChange}
+        userType={userType}
       />
       
       <main className="md:ml-64 mt-16 p-6">

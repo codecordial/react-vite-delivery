@@ -1,14 +1,15 @@
 import React from 'react';
 import { User, Phone, Truck, LogOut } from 'lucide-react';
-import { UserStats } from '../types/User';
+import { UserStats } from '../types/Order';
 
 interface ProfileSectionProps {
   userStats: UserStats;
+  onLogout: () => void;
 }
 
-const ProfileSection: React.FC<ProfileSectionProps> = ({ userStats }) => {
+const ProfileSection: React.FC<ProfileSectionProps> = ({ userStats, onLogout }) => {
   const handleLogout = () => {
-    alert('Logged out!');
+    onLogout();
   };
 
   return (

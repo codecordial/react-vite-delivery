@@ -50,6 +50,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, onOrderClick, actions }) =
       <div className="space-y-2 text-sm text-gray-700 mb-4">
         <p><span className="font-medium">Order No:</span> {order.orderNo}</p>
         <p><span className="font-medium">Order Date:</span> {order.orderDate}</p>
+        <p><span className="font-medium">Expected Delivery:</span> {order.expectedDeliveryDate}</p>
         <p><span className="font-medium">Customer Name:</span> {order.customerName}</p>
         <p><span className="font-medium">Customer Address:</span> {order.customerAddress}</p>
         <p><span className="font-medium">Customer Phone:</span> {order.customerPhone}</p>

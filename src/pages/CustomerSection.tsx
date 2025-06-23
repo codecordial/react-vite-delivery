@@ -2,9 +2,9 @@ import React, { useState, useMemo } from 'react';
 import { ChevronDown, Phone, MapPin, User, Search, X } from 'lucide-react';
 import { mockOrders } from '../data/mockData';
 import { Order } from '../types/Order';
-import SearchBar from '../components/SearchBar';
 import OrderCard from '../components/OrderCard';
 import Modal from '../components/Modal';
+import TabBar from '../components/TabBar';
 
 interface CustomerSectionProps {
   onOrderClick: (billNo: string) => void;
@@ -21,6 +21,7 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   const [typeFilter, setTypeFilter] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeTab, setActiveTab] = useState('All');
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [feedback, setFeedback] = useState({
     rating: 0,
@@ -154,15 +155,27 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
     }
   };
 
+  const tabs = [
+    { id: 'All', label: 'All' },
+    { id: 'Processing', label: 'Process' },
+    { id: 'Partial-Delivered', label: 'Partial-Delivered' },
+    { id: 'Completed', label: 'Delivered' },
+  ];
+
   const filteredOrders = useMemo(() => {
     let filtered = orders;
 
     // Filter by type
     if (typeFilter !== 'All') {
       filtered = filtered.filter(order => 
-        (typeFilter === 'Delivery' && order.billNo.startsWith('KMSB')) ||
-        (typeFilter === 'Fitting' && order.billNo.startsWith('FITB'))
+        (typeFilter === 'Delivery' && order.type === 'Delivery') ||
+        (typeFilter === 'Fitting' && order.type === 'Fitting')
       );
+    }
+
+    // Filter by status tab
+    if (activeTab !== 'All') {
+      filtered = filtered.filter(order => order.status === activeTab);
     }
 
     // Filter by search query
@@ -177,7 +190,7 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
     }
 
     return filtered;
-  }, [orders, typeFilter, searchQuery]);
+  }, [orders, typeFilter, searchQuery, activeTab]);
 
   const handleWorkerClick = (billNo: string) => {
     const order = orders.find(o => o.billNo === billNo);
@@ -248,10 +261,10 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
         
         <div className="mb-6">
           <div className="relative">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+           <input
+             type="text"
+             value={searchQuery}
+             onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by Bill No, Order No, Name, or Phone..."
               className="w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 bg-white text-gray-900 pl-10 pr-4 py-2.5 transition-all duration-200"
             />
@@ -267,11 +280,15 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
           </div>
         </div>
 
+        <div className="mb-6">
+          <TabBar tabs={tabs.map(t => ({...t, count: filteredOrders.filter(o => o.status === t.id || t.id === 'All').length }))} activeTab={activeTab} onTabChange={setActiveTab} />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredOrders.map((order) => (
-            <OrderCard
-              key={order.billNo}
-              order={order}
+            <OrderCard 
+              key={order.billNo} 
+              order={order} 
               onOrderClick={onOrderClick}
               actions={renderOrderActions(order)}
             />
@@ -279,7 +296,7 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({ onOrderClick }) => {
         </div>
 
         {filteredOrders.length === 0 && (
-          <div className="text-center py-12">
+         <div className="text-center py-12">
             <p className="text-gray-500 text-lg">No orders found</p>
             <p className="text-gray-400 text-sm mt-2">Try adjusting your search criteria</p>
           </div>

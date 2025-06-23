@@ -5,9 +5,10 @@ export interface Order {
   customerName: string;
   customerAddress: string;
   customerPhone: string;
-  status: 'Pending' | 'Processing' | 'Completed' | 'Partial Fitting';
+  status: 'Pending' | 'Processing' | 'Completed' | 'Partial Fitting' | 'Partial-Delivered';
   statusDate?: string;
   orderDate: string;
+  expectedDeliveryDate: string;
   type: 'Delivery' | 'Fitting';
 }
 
